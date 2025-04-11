@@ -46,7 +46,11 @@ pipeline {
 
         stage('application deployment') {
             steps {
-                sh "kubectl apply -f abcdeploy.yaml"
+                sh """
+                    export IMAGE_NAME=${IMAGE_NAME}
+                    export BUILD_NUMBER=${BUILD_NUMBER}
+                    envsubst < abcdeploy.yaml | kubectl apply -f -
+                """"
                 sh "kubectl apply -f abcservice.yaml"
             }
         }
