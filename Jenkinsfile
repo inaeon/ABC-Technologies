@@ -50,7 +50,7 @@ pipeline {
                     export IMAGE_NAME=${IMAGE_NAME}
                     export BUILD_NUMBER=${BUILD_NUMBER}
                     envsubst < abcdeploy.yaml | kubectl apply -f -
-                """"
+                """
                 sh "kubectl apply -f abcservice.yaml"
             }
         }
