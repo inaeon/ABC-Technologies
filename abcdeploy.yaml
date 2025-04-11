@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: abc-app
-          image: {IMAGE_NAME}:{BUILD_NUMBER}
+          image: "{IMAGE_NAME}:{BUILD_NUMBER}"
           ports:
             - containerPort: 8080
 
